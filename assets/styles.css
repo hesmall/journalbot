@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+
+body {
+  background: #bdb3cc;
+  font-family: "Alata";
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-bar {
+  background: #776E84;
+  position: relative;
+  min-height: 1vh;
+  top: 10vh;
+  width: 30%;
+}
+
+.top-text {
+  position: relative;
+  color: #776E84;
+  font-size: 2em;
+  left: 10%;
+  top: 9vh;
+}
+
+.content {
+  margin: inherit;
+  padding: 5% 0% 5% 0%;
+  flex: 1;
+  width: 80%;
+  height: 100%;
+}
+
+#entry {
+  font-size: 1.5em;
+  margin-top: 3%;
+  margin-left: 3%;
+  background-color: #f4f3f1;
+  box-sizing: border-box;
+  width: 60%;
+}
+
+footer {
+  width: 100%;
+  margin: auto;
+  font-size: 0.5em;
+  margin-bottom: 1em;
+  text-align: left;
+  flex: 0 1 auto;
+}
