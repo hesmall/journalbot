@@ -10,7 +10,7 @@ body {
 }
 
 .top-bar {
-  background: #776E84;
+  background: black;
   position: relative;
   min-height: 1vh;
   top: 10vh;
@@ -19,14 +19,14 @@ body {
 
 .top-text {
   position: relative;
-  color: #776E84;
+  color: black;
   font-size: 2em;
-  left: 10%;
+  left: 1%;
   top: 9vh;
 }
 
 .content {
-  margin: inherit;
+  margin: 1% 25%;
   padding: 5% 0% 5% 0%;
   flex: 1;
   width: 80%;
@@ -35,8 +35,8 @@ body {
 
 #entry {
   font-size: 1.5em;
-  margin-top: 3%;
-  margin-left: 3%;
+  margin-top: 0%;
+  margin-left: 0%;
   background-color: #f4f3f1;
   box-sizing: border-box;
   width: 60%;
