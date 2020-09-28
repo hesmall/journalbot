@@ -6,6 +6,7 @@
     <title>deep journaling</title>
     <script src="https://kit.fontawesome.com/a076d05399.js">
     </script>
+    <script src="200_journal_prompts.js"></script>
     <link rel="stylesheet" href="assets/styles.css">
     <link rel="stylesheet" href="assets/font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
 
@@ -20,8 +21,9 @@
     <div class="top-bar">
     </div>
     <div class="content">
-      <span id="prompt"><h1><i class="fas fa-robot"></i>&nbsp;Prompt</h1></span>
-      <button id="gen-prompt">Generate New Prompt</button>
+      <span id="prompt-header"><h1><i class="fas fa-robot"></i>&nbsp;Prompt</h1></span>
+      <button id="gen-prompt" onclick="gen_prompt()">Generate New Prompt</button>
+      <span id="prompt"> <-- click to get prompt </span>
       <span id="write-response"><h1>Write Response<i class="fas fa-feather-alt"></i></h1></span>
       <textarea id="entry" rows="30"></textarea>
       <button id="submit-entry">Submit Entry</button>
@@ -29,5 +31,15 @@
     <footer>
       &copy; Copyright 2020, Hannah Small
     </footer>
+
+    <script>
+    function gen_prompt(){
+      prompt = prompts[Math.floor(Math.random()*prompts.length)];
+      document.getElementById("prompt").innerHTML = "<p>"+prompt.prompt;
+      document.getElementById("prompt").style.size = 20;
+          }
+</script>
   </body>
 </html>
+
+

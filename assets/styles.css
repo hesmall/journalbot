@@ -9,6 +9,10 @@ body {
   flex-direction: column;
 }
 
+h1 {
+  font-size: 10;
+}
+
 .top-bar {
   background: black;
   position: relative;
@@ -26,7 +30,7 @@ body {
 }
 
 .content {
-  margin: 1% 25%;
+  margin: 4% 15%;
   padding: 5% 0% 5% 0%;
   flex: 1;
   width: 80%;
@@ -39,7 +43,7 @@ body {
   margin-left: 0%;
   background-color: #f4f3f1;
   box-sizing: border-box;
-  width: 60%;
+  width: 80%;
 }
 
 footer {
