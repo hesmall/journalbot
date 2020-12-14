@@ -21,12 +21,35 @@
     <div class="top-bar">
     </div>
     <div class="content">
-      <span id="prompt-header"><h1><i class="fas fa-robot"></i>&nbsp;Prompt</h1></span>
+
       <button id="gen-prompt" onclick="gen_prompt()">Generate New Prompt</button>
-      <span id="prompt"> <-- click to get prompt </span>
-      <span id="write-response"><h1>Write Response<i class="fas fa-feather-alt"></i></h1></span>
+      <p>
+      <span id="prompt"> ^^^^^^^^^^^^^^^</span>
+      <p>
       <textarea id="entry" rows="30"></textarea>
-      <button id="submit-entry">Submit Entry</button>
+      <p>
+
+    <div class = "tooltip">
+      <button id="copy-entry"  onclick="copy_entry()" onmouseout="outFunc()">
+        <span class="tooltiptext" id="copyTooltip">Copy to clipboard </span> 
+      Copy 
+    </button> 
+  </div>
+
+    <div class = "tooltip">
+      <button id="email-entry" onclick="email_entry()" onmouseout="outFunc()">
+        <span class="tooltiptext" id="emailTooltip">Email to yourself </span>
+      Email
+      </button>
+    </div> 
+
+    <div class = "tooltip">
+      <button id="download-entry" onclick="download_entry()" onmouseout="outFunc()">
+        <span class="tooltiptext" id="downloadTooltip">Download as .txt</span>
+      Download
+      </button>
+    </div> 
+
     </div>
     <footer>
       &copy; Copyright 2020, Hannah Small
@@ -35,10 +58,87 @@
     <script>
     function gen_prompt(){
       prompt = prompts[Math.floor(Math.random()*prompts.length)];
-      document.getElementById("prompt").innerHTML = "<p>"+prompt.prompt;
-      document.getElementById("prompt").style.size = 20;
+      var d = new Date();
+      year = d.getFullYear();
+      month = d.getMonth() + 1;
+      day = d.getDay();
+      date = year + "/" + month + "/" + day;
+      document.getElementById("entry").innerHTML = date + ": \n" + prompt.prompt + "\n---\n";
+      document.getElementById("prompt").innerHTML = prompt.prompt;
+      document.getElementById("prompt").style.visibility = "hidden";
           }
-</script>
+
+    function outFunc() {
+      var tooltip = document.getElementById("copyTooltip");
+      }
+
+    function copy_entry(){
+      /* Get the text field */
+      var text = document.getElementById("entry");
+
+      /* Select the text field */
+      text.select();
+      text.setSelectionRange(0,99999);
+
+      /* Copy the text inside the text field */
+
+      document.execCommand("copy");
+
+      var tooltip = document.getElementById("copyTooltip");
+      tooltip.innerHTML = "Entry copied!";
+    }
+
+    function email_entry(){
+      var subject = document.getElementById("prompt").innerHTML;
+
+      var body = document.getElementById("entry").value;
+
+      /* Separate the prompt from the answer for better formatting */
+      start_index = body.indexOf("---");
+
+      formatted_body = body.slice(0,start_index) + '%0D%0A' + '---%0D%0A' + body.slice(start_index+3,body.length);
+
+      window.open('mailto:?subject='+subject+'&body='+formatted_body);
+
+      var tooltip = document.getElementById("emailTooltip");
+      tooltip.innerHTML = "Email opened!";
+
+    }
+
+    function download_entry(){
+      var d = new Date();
+      year = d.getFullYear();
+      month = d.getMonth() + 1;
+      day = d.getDay();
+
+      filename = "deepjournal_" + year+month
+      if(day<10)
+        filename+= '0'+day
+      else
+        filename+= day
+
+      filename += '.txt'
+
+      var text = document.getElementById("entry").value;
+      text = text.replace(/\n/g, "\r\n"); // To retain the Line breaks.
+      var blob = new Blob([text], { type: "text/plain"});
+      var anchor = document.createElement("a");
+      anchor.download = filename;
+      anchor.href = window.URL.createObjectURL(blob);
+      anchor.target ="_blank";
+      anchor.style.display = "none"; // just to be safe!
+      document.body.appendChild(anchor);
+      anchor.click();
+      document.body.removeChild(anchor);
+
+      var tooltip = document.getElementById("downloadTooltip");
+      tooltip.innerHTML = "Entry downloaded!";
+    }
+
+
+    </script>
+
+
   </body>
 </html>
 

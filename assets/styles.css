@@ -7,6 +7,8 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
+  width:100%;
+  height:100%;
 }
 
 h1 {
@@ -19,13 +21,14 @@ h1 {
   min-height: 1vh;
   top: 10vh;
   width: 30%;
+  left:15%;
 }
 
 .top-text {
   position: relative;
   color: black;
   font-size: 2em;
-  left: 1%;
+  left: 15%;
   top: 9vh;
 }
 
@@ -33,8 +36,8 @@ h1 {
   margin: 4% 15%;
   padding: 5% 0% 5% 0%;
   flex: 1;
-  width: 80%;
-  height: 100%;
+  width: 70%;
+  height: 50%;
 }
 
 #entry {
@@ -53,4 +56,42 @@ footer {
   margin-bottom: 1em;
   text-align: left;
   flex: 0 1 auto;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 140px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -75px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
 }
