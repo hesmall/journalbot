@@ -19,7 +19,7 @@ h1 {
   background: black;
   position: relative;
   min-height: 1vh;
-  top: 10vh;
+  top: 10%;
   width: 30%;
   left:15%;
 }
@@ -29,7 +29,7 @@ h1 {
   color: black;
   font-size: 2em;
   left: 15%;
-  top: 9vh;
+  top: 9%;
 }
 
 .content {
