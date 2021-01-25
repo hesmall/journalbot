@@ -61,8 +61,9 @@
       var d = new Date();
       year = d.getFullYear();
       month = d.getMonth() + 1;
-      day = d.getDay();
-      date = year + "/" + month + "/" + day;
+      day = d.getDate();
+      date = d
+      
       document.getElementById("entry").innerHTML = date + ": \n" + prompt.prompt + "\n---\n";
       document.getElementById("prompt").innerHTML = prompt.prompt;
       document.getElementById("prompt").style.visibility = "hidden";
@@ -109,9 +110,10 @@
       var d = new Date();
       year = d.getFullYear();
       month = d.getMonth() + 1;
-      day = d.getDay();
+      day = d.getDate();
 
       filename = "deepjournal_" + year+month
+      
       if(day<10)
         filename+= '0'+day
       else
